@@ -6,11 +6,15 @@ import { ContactsPage } from './containers/contactsPage/ContactsPage';
 
 function App() {
   const [contacts, setContacts] = useState([
-    { Name: 'name1', PhoneNumber: 'phoneNumber1', Email: 'email1' },
-    { Name: 'name2', PhoneNumber: 'phoneNumber2', Email: 'email2' },
-    { Name: 'name3', PhoneNumber: 'phoneNumber3', Email: 'email3' },
+    ['name1', 'phoneNumber1', 'email1'],
+    ['name2', 'phoneNumber2', 'email2'],
+    ['name3', 'phoneNumber3', 'email3'],
   ]);
-  const [appointments, setAppointments] = useState([]);
+  const [appointments, setAppointments] = useState([
+    ['title1', 'contact1', 'date1', 'time1'],
+    ['title2', 'contact2', 'date2', 'time2'],
+    ['title3', 'contact3', 'date3', 'time3'],
+  ]);
 
   const ROUTES = {
     CONTACTS: '/contacts',
@@ -19,17 +23,11 @@ function App() {
 
   function addcontact(name, phoneNumber, email) {
     console.log(name, phoneNumber, email);
-    setContacts((prev) => [
-      { Name: name, PhoneNumber: phoneNumber, Email: email },
-      ...prev,
-    ]);
+    setContacts((prev) => [[name, phoneNumber, email], ...prev]);
   }
 
   function addAppointment(title, contact, date, time) {
-    setAppointments((prev) => [
-      { Title: title, Contact: contact, Date: date, Time: time },
-      ...prev,
-    ]);
+    setAppointments((prev) => [[title, contact, date, time], ...prev]);
   }
 
   return (
@@ -55,7 +53,9 @@ function App() {
             {/* Add props to AppointmentsPage */}
             <AppointmentsPage
               appointments={appointments}
+              contacts={contacts}
               addAppointment={addAppointment}
+              array={appointments}
             />
           </Route>
         </Switch>

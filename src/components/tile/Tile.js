@@ -1,11 +1,12 @@
 import React from 'react';
 
-export const Tile = ({ contact }) => {
+export const Tile = ({ item }) => {
   return (
     <div className="tile-container">
-      <p className="tile-title">{contact.Name}</p>
-      <p>{contact.PhoneNumber}</p>
-      <p>{contact.Email}</p>
+      <p className="tile-title">{item[0]}</p>
+      <p>{item[1]}</p>
+      <p>{item[2]}</p>
+      {item[3] ? <p>{item[3]}</p> : null}
       <hr />
     </div>
   );

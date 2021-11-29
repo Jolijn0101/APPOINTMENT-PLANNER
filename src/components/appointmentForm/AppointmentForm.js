@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const AppointmentForm = ({
   contacts,
@@ -10,16 +10,14 @@ export const AppointmentForm = ({
   setDate,
   time,
   setTime,
-  handleSubmit
+  handleSubmit,
 }) => {
   const getTodayString = () => {
     const [month, day, year] = new Date()
-      .toLocaleDateString("en-US")
-      .split("/");
-    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+      .toLocaleDateString('en-US')
+      .split('/');
+    return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
   };
 
-  return (
-    AppointmentForm
-  );
+  return <h3>This is a appointment form</h3>;
 };
