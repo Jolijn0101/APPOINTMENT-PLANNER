@@ -4,24 +4,25 @@ import { ContactForm } from '../../components/contactForm/ContactForm';
 import { TileList } from '../../components/tileList/TileList';
 
 export const ContactsPage = ({ contacts, addcontact }) => {
-  console.log(contacts);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (contacts.find((contact) => contact.name === name)) {
+
+    if (contacts.find((contact) => contact.Name === name)) {
       alert('name already excists');
+    } else {
+      addcontact(name, phone, email);
+      setName('');
+      setPhone('');
+      setEmail('');
     }
-    addcontact(name, phone, email);
-    setName('');
-    setPhone('');
-    setEmail('');
   };
 
   useEffect(() => {
-    if (contacts.find((contact) => contact.name === name)) {
+    if (contacts.find((contact) => contact.Name === name)) {
       console.log('name already excists');
     }
   }, [contacts, name]);

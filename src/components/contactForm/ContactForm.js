@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const ContactForm = ({
   name,
@@ -7,9 +7,32 @@ export const ContactForm = ({
   setPhone,
   email,
   setEmail,
-  handleSubmit
+  handleSubmit,
 }) => {
   return (
-    ContactForm
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          placeholder="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+        />
+        <input
+          placeholder="phone"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          type="tel"
+          pattern="[0-9]{4}-[0-9]{6}"
+        />
+        <input
+          placeholder="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+        />
+        <input type="submit" value="submit" />
+      </form>
+    </div>
   );
 };

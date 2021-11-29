@@ -18,6 +18,7 @@ function App() {
   };
 
   function addcontact(name, phoneNumber, email) {
+    console.log(name, phoneNumber, email);
     setContacts((prev) => [
       { Name: name, PhoneNumber: phoneNumber, Email: email },
       ...prev,
