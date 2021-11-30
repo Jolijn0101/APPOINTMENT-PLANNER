@@ -13,6 +13,10 @@ export const AppointmentForm = ({
   setTime,
   handleSubmit,
 }) => {
+  const chooseContact = (e) => {
+    setContact(e.target.value);
+  };
+
   const getTodayString = () => {
     const [month, day, year] = new Date()
       .toLocaleDateString('en-US')
@@ -42,7 +46,11 @@ export const AppointmentForm = ({
           type="time"
           onChange={(e) => setTime(e.target.value)}
         />
-        <ContactPicker contacts={contacts} />
+        <ContactPicker
+          contacts={contacts}
+          chooseContact={chooseContact}
+          contact={contact}
+        />
         <input type="submit" value="submit" />
       </form>
     </div>
