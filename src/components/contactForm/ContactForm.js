@@ -8,10 +8,12 @@ export const ContactForm = ({
   email,
   setEmail,
   handleSubmit,
+  nameCheck,
 }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        {nameCheck ? <p style={{ color: 'red' }}>name already exists</p> : null}
         <input
           placeholder="name"
           value={name}

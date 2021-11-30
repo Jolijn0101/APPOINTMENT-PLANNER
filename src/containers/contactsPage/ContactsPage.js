@@ -4,6 +4,7 @@ import { ContactForm } from '../../components/contactForm/ContactForm';
 import { TileList } from '../../components/tileList/TileList';
 
 export const ContactsPage = ({ contacts, addcontact }) => {
+  const [nameCheck, setNameCheck] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ export const ContactsPage = ({ contacts, addcontact }) => {
       setPhone('');
       setEmail('');
     } else if (contacts.find((contact) => contact[0] === name)) {
-      alert('name already excists');
+      alert('name already exists');
     } else {
       addcontact(name, phone, email);
       setName('');
@@ -30,7 +31,9 @@ export const ContactsPage = ({ contacts, addcontact }) => {
       return;
     } else {
       if (contacts.find((contact) => contact[0] === name)) {
-        console.log('name already excists');
+        setNameCheck(true);
+      } else if (contacts.find((contact) => contact[0] !== name)) {
+        setNameCheck(false);
       }
     }
   }, [contacts, name]);
@@ -40,6 +43,7 @@ export const ContactsPage = ({ contacts, addcontact }) => {
       <section>
         <h2>Add Contact</h2>
         <ContactForm
+          nameCheck={nameCheck}
           name={name}
           phone={phone}
           email={email}
