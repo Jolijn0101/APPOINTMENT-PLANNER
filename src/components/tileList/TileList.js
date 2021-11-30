@@ -2,7 +2,9 @@ import React from 'react';
 import { Tile } from '../tile/Tile';
 
 export const TileList = ({ contacts, appointments }) => {
+  //writes the current url to the location variable
   const location = window.location.href;
+  //Checks if the location is the appointment page and returns the correct data for each page
   if (location === 'http://localhost:3000/appointments') {
     return (
       <ul>

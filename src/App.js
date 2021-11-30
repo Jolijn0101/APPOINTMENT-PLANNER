@@ -7,7 +7,7 @@ import { ContactsPage } from './containers/contactsPage/ContactsPage';
 function App() {
   const [contacts, setContacts] = useState(
     null
-    /*[
+    /* made for testing[
     ['name1', 'phoneNumber1', 'email1'],
     ['name2', 'phoneNumber2', 'email2'],
     ['name3', 'phoneNumber3', 'email3'],
@@ -15,7 +15,7 @@ function App() {
   );
   const [appointments, setAppointments] = useState(
     null
-    /*[
+    /* made for testing[
     ['title1', 'contact1', 'date1', 'time1'],
     ['title2', 'contact2', 'date2', 'time2'],
     ['title3', 'contact3', 'date3', 'time3'],
@@ -26,7 +26,7 @@ function App() {
     CONTACTS: '/contacts',
     APPOINTMENTS: '/appointments',
   };
-
+  //makes new contact array and updates contact state
   function addcontact(name, phoneNumber, email) {
     if (contacts === null) {
       setContacts([[name, phoneNumber, email]]);
@@ -34,7 +34,7 @@ function App() {
       setContacts((prev) => [[name, phoneNumber, email], ...prev]);
     }
   }
-
+  //makes new appointment array and update appointment state
   function addAppointment(title, contact, date, time) {
     if (appointments === null) {
       setAppointments([[title, contact, date, time]]);
@@ -45,6 +45,7 @@ function App() {
 
   return (
     <>
+      {/* navigates between the components */}
       <nav>
         <NavLink to={ROUTES.CONTACTS} activeClassName="active">
           Contacts
@@ -59,11 +60,11 @@ function App() {
             <Redirect to={ROUTES.CONTACTS} />
           </Route>
           <Route path={ROUTES.CONTACTS}>
-            {/* Add props to ContactsPage */}
+            {/* renders contactpage component */}
             <ContactsPage contacts={contacts} addcontact={addcontact} />
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
-            {/* Add props to AppointmentsPage */}
+            {/* renders appointmentsPage */}
             <AppointmentsPage
               appointments={appointments}
               contacts={contacts}

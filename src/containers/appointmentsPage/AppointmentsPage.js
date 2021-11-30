@@ -12,6 +12,7 @@ export const AppointmentsPage = ({
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
 
+  //calls a function that makes a new appointment array and clears the title, contact, date and time state.
   const handleSubmit = (e) => {
     e.preventDefault();
     addAppointment(title, contact, date, time);
@@ -20,7 +21,7 @@ export const AppointmentsPage = ({
     setDate('');
     setTime('');
   };
-
+  //returns two components one for the form and one to display the appointments.
   return (
     <div>
       <section>
