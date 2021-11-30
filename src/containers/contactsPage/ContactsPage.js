@@ -10,8 +10,12 @@ export const ContactsPage = ({ contacts, addcontact }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (contacts.find((contact) => contact.Name === name)) {
+    if (contacts === null) {
+      addcontact(name, phone, email);
+      setName('');
+      setPhone('');
+      setEmail('');
+    } else if (contacts.find((contact) => contact[0] === name)) {
       alert('name already excists');
     } else {
       addcontact(name, phone, email);
@@ -22,8 +26,12 @@ export const ContactsPage = ({ contacts, addcontact }) => {
   };
 
   useEffect(() => {
-    if (contacts.find((contact) => contact.Name === name)) {
-      console.log('name already excists');
+    if (contacts === null) {
+      return;
+    } else {
+      if (contacts.find((contact) => contact[0] === name)) {
+        console.log('name already excists');
+      }
     }
   }, [contacts, name]);
 

@@ -5,16 +5,22 @@ import { AppointmentsPage } from './containers/appointmentsPage/AppointmentsPage
 import { ContactsPage } from './containers/contactsPage/ContactsPage';
 
 function App() {
-  const [contacts, setContacts] = useState([
+  const [contacts, setContacts] = useState(
+    null
+    /*[
     ['name1', 'phoneNumber1', 'email1'],
     ['name2', 'phoneNumber2', 'email2'],
     ['name3', 'phoneNumber3', 'email3'],
-  ]);
-  const [appointments, setAppointments] = useState([
+  ]*/
+  );
+  const [appointments, setAppointments] = useState(
+    null
+    /*[
     ['title1', 'contact1', 'date1', 'time1'],
     ['title2', 'contact2', 'date2', 'time2'],
     ['title3', 'contact3', 'date3', 'time3'],
-  ]);
+  ]*/
+  );
 
   const ROUTES = {
     CONTACTS: '/contacts',
@@ -22,12 +28,19 @@ function App() {
   };
 
   function addcontact(name, phoneNumber, email) {
-    console.log(name, phoneNumber, email);
-    setContacts((prev) => [[name, phoneNumber, email], ...prev]);
+    if (contacts === null) {
+      setContacts([[name, phoneNumber, email]]);
+    } else {
+      setContacts((prev) => [[name, phoneNumber, email], ...prev]);
+    }
   }
 
   function addAppointment(title, contact, date, time) {
-    setAppointments((prev) => [[title, contact, date, time], ...prev]);
+    if (appointments === null) {
+      setAppointments([[title, contact, date, time]]);
+    } else {
+      setAppointments((prev) => [[title, contact, date, time], ...prev]);
+    }
   }
 
   return (

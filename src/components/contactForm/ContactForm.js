@@ -19,7 +19,7 @@ export const ContactForm = ({
           type="text"
         />
         <input
-          placeholder="phone"
+          placeholder="phone-number 0197-267797"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           type="tel"

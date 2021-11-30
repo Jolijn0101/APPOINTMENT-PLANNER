@@ -6,17 +6,21 @@ export const TileList = ({ contacts, appointments }) => {
   if (location === 'http://localhost:3000/appointments') {
     return (
       <ul>
-        {appointments.map((item, index) => (
-          <Tile item={item} key={index} />
-        ))}
+        {appointments ? (
+          appointments.map((item, index) => <Tile item={item} key={index} />)
+        ) : (
+          <p>No appointments for display</p>
+        )}
       </ul>
     );
   } else {
     return (
       <ul>
-        {contacts.map((item, index) => (
-          <Tile item={item} key={index} />
-        ))}
+        {contacts ? (
+          contacts.map((item, index) => <Tile item={item} key={index} />)
+        ) : (
+          <p>No contacts for display</p>
+        )}
       </ul>
     );
   }
