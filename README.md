@@ -1,4 +1,4 @@
-# Appointmet-planner
+# Appointment-planner
 
 On codecademy I made an Appointment planner in react. With this planner you can make new contacts and Appointments.
 In the Appointments section you can choose contacts you already filled in. The app doesn't contain any backend.
